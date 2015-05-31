@@ -10,7 +10,7 @@ source "${OPENSHIFT_RUBY_DIR}/lib/ruby_context"
 function start() {
     echo "Starting resque worker"
 
-    ruby_context "environment QUEUE='high,normal,low' PIDFILE=$pid LOG=$log rake resque:work"
+    ruby_context "environment QUEUE=* PIDFILE=$pid LOG=$log rake resque:work RAILS_ENV=production"
     return 0
 }
 
